@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <title>Restaurants</title>
     <link rel="stylesheet" type="text/css" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,25 +14,15 @@
         <label for="restaurantId">Select a restaurant:</label>
         <select name="restaurantId" id="restaurantId">
           <% restaurants.forEach((restaurant) => { %>
-          <option value="<%= restaurant.id %>"><%= restaurant.name %></option>
+          <option value="<%= restaurant.id %>">
+            <%= restaurant.name %> - <%= restaurant.city %>
+          </option>
           <% }) %>
         </select>
         <button type="submit">Get the menu!</button>
       </form>
-      <section>
-        <h2>Featured Menu Items from <%= randomRestaurant.name %>:</h2>
-        <ul>
-          <% randomMenu.items.forEach(item => { %>
-          <li>
-            <%= item.name %> - <%= item.description %> ($<%= item.price %>)
-            <%if(item.dailySpecial) { %> <strong>(Special)</strong> <% } %>
-          </li>
-          <% }) %>
-        </ul>
-      </section>
-      <footer>
-        <a href="/alerts">View Special Menu Alerts</a>
-      </footer>
+
+      <a href="/alerts" class="alerts">View Special Menu Alerts</a>
     </main>
   </body>
 </html>

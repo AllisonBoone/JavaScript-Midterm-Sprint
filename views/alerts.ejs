@@ -4,22 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant</title>
-    <link rel="stylesheet" href="/public/styles.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
   </head>
   <body>
-    <h1>Special Menu Alerts</h1>
-    <% specials.forEach(special => { %>
-    <h2><%= special.restaurantName %> - <%= special.cuisine %></h2>
-    <% if (special.specialItems.length > 0) { %>
-    <ul>
-      <% special.specialItems.forEach(item => { %>
-      <li><%= item.name %> - <%= item.description %> ($<%= item.price %>)</li>
-      <% }) %>
-    </ul>
-    <% }else{ %>
-    <p>No Specials Today!</p>
-    <% } %> <% }) %>
-    <a href="/">Back to Homepage</a>
-    <footer></footer>
+    <main class="main-content">
+      <h1>Special Menu Alerts</h1>
+      <% specials.forEach(special => { %>
+      <h2><%= special.restaurantName %> - <%= special.cuisine %></h2>
+      <% if (special.specialItems.length > 0) { %>
+      <ul>
+        <% special.specialItems.forEach(item => { %>
+        <li><%= item.name %> - <%= item.description %> ($<%= item.price %>)</li>
+        <% }) %>
+      </ul>
+      <% }else{ %>
+      <p>No Specials Today!</p>
+      <% } %> <% }) %>
+      <a href="/" class="alerts">Back to Homepage</a>
+    </main>
   </body>
 </html>
