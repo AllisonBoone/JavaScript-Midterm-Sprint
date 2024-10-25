@@ -1,22 +1,33 @@
 <html lang="en">
-    <head>
-        <title>Restaurants</title>
-        <link rel="stylesheet" type="text/css" href="./styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    </head>
-    <body>
-        <main class="main-content">
-            <h1>Restaurant Menus</h1>
-            <h2>Please choose your restaurant to get the menu</h2>
-            <form action="/restaurant" method="GET">
-                <label for="restaurantId">Select a restaurant:</label>
-                <select name="restaurantId" id="restaurantId">
-                    <% restaurants.forEach((restaurant) => { %>
-                        <option value="<%= restaurant.id %>"><%= restaurant.name %></option>
-                    <% }) %>
-                </select>
-                <button type="submit">Get the menu!</button>
-            </form>
-        </main>
-    </body>
+  <head>
+    <title>Restaurants</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  </head>
+  <body>
+    <main class="main-content">
+      <h1>Restaurant Menus</h1>
+      <h2>Please choose your restaurant to get the menu</h2>
+      <form action="/restaurant" method="GET">
+        <label for="restaurantId">Select a restaurant:</label>
+        <select name="restaurantId" id="restaurantId">
+          <% restaurants.forEach((restaurant) => { %>
+          <option value="<%= restaurant.id %>"><%= restaurant.name %></option>
+          <% }) %>
+        </select>
+        <button type="submit">Get the menu!</button>
+      </form>
+      <section>
+        <h2>Featured Menu Items from <%= randomRestaurant.name %>:</h2>
+        <ul>
+          <% randomMenu.items.forEach(item => { %>
+          <li>
+            <%= item.name %> - <%= item.description %> ($<%= item.price %>)
+            <%if(item.dailySpecial) { %> <strong>(Special)</strong> <% } %>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+  </body>
 </html>
