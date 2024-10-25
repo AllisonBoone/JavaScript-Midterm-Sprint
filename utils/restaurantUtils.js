@@ -1,4 +1,4 @@
-const { Dishes, Cuisines, Restaurants } = require("./data");
+const { Dishes, Cuisines, Restaurants } = require('./data');
 
 /**
  * Generates a random menu item based on a given cuisine.
@@ -7,6 +7,11 @@ const { Dishes, Cuisines, Restaurants } = require("./data");
  */
 function generateRandomMenuItem(cuisine) {
   // Implementation here...
+  const dishes = Dishes[cuisine];
+  const randomDish = dishes[Math.floor(Math.random() * dishes.length)];
+  const price = (Math.random() * 20 + 5).toFixed(2);
+  const dailySpecial = Math.random() > 0.8;
+  return { ...randomDish, price, dailySpecial };
 }
 
 /**
