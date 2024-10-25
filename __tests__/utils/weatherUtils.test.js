@@ -65,7 +65,12 @@ describe('Restaurant Functions', () => {
     });
   });
 
+  // Test for valid cuisine in specific cuisine list.
   describe('selectRandomCuisine', () => {
     // Test implementations go here
+    it('Should return valid cuisine in Cuisines list', () => {
+      const cuisine = selectRandomCuisine();
+      expect(Cuisines).toContain(cuisine);
+    });
   });
 });
