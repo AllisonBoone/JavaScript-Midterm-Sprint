@@ -35,9 +35,34 @@ describe('Restaurant Functions', () => {
     });
   });
 
-  // Test
+  // Test for properties, validate cuisine in cuisine list,validate items in array between 5-10, price range true/false of dailySpecial.
   describe('generateMenu', () => {
     // Test implementations go here
+    it('Should return menu with cuisine and items in array', () => {
+      const menu = generateMenu();
+
+      expect(menu).toHaveProperty('cuisine');
+      expect(menu).toHaveProperty('items');
+
+      expect(Cuisines).toContain(menu.cuisine);
+
+      expect(Array.isArray(menu.items)).toBe(true);
+      expect(menu.items.length).toBeGreaterThanOrEqual(5);
+      expect(menu.items.length).toBeLessThanOrEqual(10);
+
+      menu.items.forEach((item) => {
+        expect(item).toHaveProperty('name');
+        expect(item).toHaveProperty('description');
+        expect(item).toHaveProperty('price');
+        expect(item).toHaveProperty('dailySpecial');
+
+        const price = parseFloat(item.price);
+        expect(price).toBeGreaterThanOrEqual(5);
+        expect(price).toBeLesserThanOrEqual(25);
+
+        expect(typeof item.dailySpecial).toBe('boolean');
+      });
+    });
   });
 
   describe('selectRandomCuisine', () => {
