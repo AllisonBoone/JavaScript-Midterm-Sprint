@@ -29,6 +29,13 @@ function selectRandomCuisine() {
  */
 function generateMenu() {
   // Implementation here...
+  const cuisine = selectRandomCuisine();
+  const numOfItems = Math.floor(Math.random() * 6) + 5;
+  const menu = [];
+  for (i = 0; i < numOfItems; i++) {
+    menu.push(generateRandomMenuItem(cuisine));
+  }
+  return { cuisine, items: menu };
 }
 
 /**
