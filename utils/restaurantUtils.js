@@ -20,6 +20,7 @@ function generateRandomMenuItem(cuisine) {
  */
 function selectRandomCuisine() {
   // Implementation here...
+  return Cuisines[Math.floor(Math.random() * Cuisines.length)];
 }
 
 /**
