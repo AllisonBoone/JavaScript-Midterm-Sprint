@@ -22,7 +22,7 @@ describe('Restaurant Functions', () => {
 
       const price = parseFloat(menuItem.price);
       expect(price).toBeGreaterThanOrEqual(5);
-      expect(price).toBeLesserThanOrEqual(25);
+      expect(price).toBeLessThanOrEqual(25);
 
       expect(typeof menuItem.dailySpecial).toBe('boolean');
     });
@@ -58,7 +58,7 @@ describe('Restaurant Functions', () => {
 
         const price = parseFloat(item.price);
         expect(price).toBeGreaterThanOrEqual(5);
-        expect(price).toBeLesserThanOrEqual(25);
+        expect(price).toBeLessThanOrEqual(25);
 
         expect(typeof item.dailySpecial).toBe('boolean');
       });
