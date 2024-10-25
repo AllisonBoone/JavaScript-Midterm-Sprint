@@ -48,6 +48,18 @@ app.get('/restaurant', (request, response) => {
 });
 
 //Add any other required routes here
+app.get('/alerts', (request, response) => {
+  const specials = Restaurants.map((restaurant) => {
+    const menuData = generateMenu();
+    const specialItems = menuData.items.filter((item) => item.dailySpecial);
+    return {
+      restaurantName: restaurant.name,
+      cuisine: menuData.cuisine,
+      specialItems,
+    };
+  });
+  response.render('alerts', { specials });
+});
 
 const port = 3000;
 app.listen(port, () => {
