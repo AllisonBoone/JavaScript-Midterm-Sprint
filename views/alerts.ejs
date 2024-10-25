@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body>
+    <h1>Special Menu Alerts</h1>
+    <% specials.forEach(special => { %>
+    <h2><%= special.restaurantName %> - <%= special.cuisine %></h2>
+    <% if (special.specialItems.length > 0) { %>
+    <ul>
+      <% special.specialItems.forEach(item => { %>
+      <li><%= item.name %> - <%= item.description %> ($<%= item.price %>)</li>
+      <% }) %>
+    </ul>
+    <% }else{ %>
+    <p>No Specials Today!</p>
+    <% } %> <% }) %>
+    <a href="/">Back to Homepage</a>
+    <footer></footer>
+  </body>
+</html>
